@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.baixian.dao.TEmpMapper" >
-  <resultMap id="BaseResultMap" type="com.baixian.vo.TEmp" >
+<mapper namespace="com.baixian.dao.BxAdminMapper" >
+  <resultMap id="BaseResultMap" type="com.baixian.vo.BxAdmin" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="admin_name" property="adminName" jdbcType="VARCHAR" />
+    <result column="login_time" property="loginTime" jdbcType="DATE" />
     <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="sex" property="sex" jdbcType="VARCHAR" />
-    <result column="dept" property="dept" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -67,15 +66,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, username, password, sex, dept
+    id, admin_name, login_time, password
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.baixian.vo.TEmpExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.baixian.vo.BxAdminExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from t_emp
+    from bx_admin
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,85 +85,76 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from t_emp
+    from bx_admin
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from t_emp
+    delete from bx_admin
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.baixian.vo.TEmpExample" >
-    delete from t_emp
+  <delete id="deleteByExample" parameterType="com.baixian.vo.BxAdminExample" >
+    delete from bx_admin
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.baixian.vo.TEmp" >
-    insert into t_emp (id, username, password, 
-      sex, dept)
-    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=VARCHAR}, #{dept,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.baixian.vo.BxAdmin" >
+    insert into bx_admin (id, admin_name, login_time, 
+      password)
+    values (#{id,jdbcType=INTEGER}, #{adminName,jdbcType=VARCHAR}, #{loginTime,jdbcType=DATE}, 
+      #{password,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.baixian.vo.TEmp" >
-    insert into t_emp
+  <insert id="insertSelective" parameterType="com.baixian.vo.BxAdmin" >
+    insert into bx_admin
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
-      <if test="username != null" >
-        username,
+      <if test="adminName != null" >
+        admin_name,
+      </if>
+      <if test="loginTime != null" >
+        login_time,
       </if>
       <if test="password != null" >
         password,
-      </if>
-      <if test="sex != null" >
-        sex,
-      </if>
-      <if test="dept != null" >
-        dept,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="username != null" >
-        #{username,jdbcType=VARCHAR},
+      <if test="adminName != null" >
+        #{adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null" >
+        #{loginTime,jdbcType=DATE},
       </if>
       <if test="password != null" >
         #{password,jdbcType=VARCHAR},
       </if>
-      <if test="sex != null" >
-        #{sex,jdbcType=VARCHAR},
-      </if>
-      <if test="dept != null" >
-        #{dept,jdbcType=VARCHAR},
-      </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.baixian.vo.TEmpExample" resultType="java.lang.Integer" >
-    select count(*) from t_emp
+  <select id="countByExample" parameterType="com.baixian.vo.BxAdminExample" resultType="java.lang.Integer" >
+    select count(*) from bx_admin
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update t_emp
+    update bx_admin
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.username != null" >
-        username = #{record.username,jdbcType=VARCHAR},
+      <if test="record.adminName != null" >
+        admin_name = #{record.adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginTime != null" >
+        login_time = #{record.loginTime,jdbcType=DATE},
       </if>
       <if test="record.password != null" >
         password = #{record.password,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sex != null" >
-        sex = #{record.sex,jdbcType=VARCHAR},
-      </if>
-      <if test="record.dept != null" >
-        dept = #{record.dept,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -172,40 +162,35 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update t_emp
+    update bx_admin
     set id = #{record.id,jdbcType=INTEGER},
-      username = #{record.username,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR},
-      sex = #{record.sex,jdbcType=VARCHAR},
-      dept = #{record.dept,jdbcType=VARCHAR}
+      admin_name = #{record.adminName,jdbcType=VARCHAR},
+      login_time = #{record.loginTime,jdbcType=DATE},
+      password = #{record.password,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.baixian.vo.TEmp" >
-    update t_emp
+  <update id="updateByPrimaryKeySelective" parameterType="com.baixian.vo.BxAdmin" >
+    update bx_admin
     <set >
-      <if test="username != null" >
-        username = #{username,jdbcType=VARCHAR},
+      <if test="adminName != null" >
+        admin_name = #{adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null" >
+        login_time = #{loginTime,jdbcType=DATE},
       </if>
       <if test="password != null" >
         password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="sex != null" >
-        sex = #{sex,jdbcType=VARCHAR},
-      </if>
-      <if test="dept != null" >
-        dept = #{dept,jdbcType=VARCHAR},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.baixian.vo.TEmp" >
-    update t_emp
-    set username = #{username,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=VARCHAR},
-      dept = #{dept,jdbcType=VARCHAR}
+  <update id="updateByPrimaryKey" parameterType="com.baixian.vo.BxAdmin" >
+    update bx_admin
+    set admin_name = #{adminName,jdbcType=VARCHAR},
+      login_time = #{loginTime,jdbcType=DATE},
+      password = #{password,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
