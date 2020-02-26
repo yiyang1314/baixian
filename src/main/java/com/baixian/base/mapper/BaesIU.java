@@ -7,9 +7,6 @@ import org.springframework.context.annotation.Condition;
 
 public interface BaesIU<T> {
 
-	/**
-	 * 
-	 */
 	void save(T model);//持久化
     void save(List<T> models);//批量持久化
     void deleteById(Integer id);//通过主鍵刪除
@@ -20,7 +17,5 @@ public interface BaesIU<T> {
     List<T> findByIds(String ids);//通过多个ID查找//eg：ids -> “1,2,3,4”
     List<T> findByCondition(Condition condition);//根据条件查找
     List<T> findAll();//获取所有
-    
-   
-	
+
 }

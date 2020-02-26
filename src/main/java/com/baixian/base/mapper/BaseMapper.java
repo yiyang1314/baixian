@@ -6,11 +6,11 @@ import org.apache.ibatis.annotations.Param;
 
 
 
-public interface BaseMapper<T> {
+public interface BaseMapper<T,E> {
 
-    int countByExample(T example);
+    int countByExample(E example);
 
-    int deleteByExample(T example);
+    int deleteByExample(E example);
 
     int deleteByPrimaryKey(Integer id);
 
@@ -18,13 +18,13 @@ public interface BaseMapper<T> {
 
     int insertSelective(T record);
 
-    List<T> selectByExample(T example);
+    List<T> selectByExample(E example);
 
     T selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") T record, @Param("example") T example);
+    int updateByExampleSelective(@Param("record") T record, @Param("example") E example);
 
-    int updateByExample(@Param("record") T record, @Param("example") T example);
+    int updateByExample(@Param("record") T record, @Param("example") E example);
 
     int updateByPrimaryKeySelective(T record);
 
