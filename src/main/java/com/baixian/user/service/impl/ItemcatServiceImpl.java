@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 import com.baixian.common.respose.Result;
 import com.baixian.common.respose.ResultCode;
 import com.baixian.user.BxItemcatMapper;
-import com.baixian.user.service.ItemcatIU;
+import com.baixian.user.service.IItemcatService;
 import com.baixian.vo.BxItemcat;
 import com.baixian.vo.BxItemcatExample;
 import com.baixian.vo.BxItemcatExample.Criteria;
 
 
 @Service("itemcatService")
-public class ItemcatServiceImpl implements ItemcatIU {
+public class ItemcatServiceImpl implements IItemcatService {
 
 	@Autowired
 	private BxItemcatMapper bxItemcatMapper;
@@ -32,7 +32,7 @@ public class ItemcatServiceImpl implements ItemcatIU {
 		
 		BxItemcatExample example=new BxItemcatExample();
 		Criteria connd=example.createCriteria();
-		connd.andParentidEqualTo(0);
+		//connd.andParentidEqualTo(0);
 		return bxItemcatMapper.selectByExample(example);
 	}
 
@@ -49,11 +49,11 @@ public class ItemcatServiceImpl implements ItemcatIU {
 		if(n>0){
 			result.setCode(ResultCode.SUCCESS);
 			result.setData(itemcat);
-			result.setMessage("修改成功！");
+			result.setMessage("淇敼鎴愬姛锛�");
 		}else{
 			result.setCode(ResultCode.FAIL);
 			result.setData(itemcat);
-			result.setMessage("修改成功！");
+			result.setMessage("淇敼鎴愬姛锛�");
 		}
 		return result;
 	}
@@ -66,11 +66,11 @@ public class ItemcatServiceImpl implements ItemcatIU {
 		if(n>0){
 			result.setCode(ResultCode.SUCCESS);
 			result.setData(itemcat);
-			result.setMessage("删除成功！");
+			result.setMessage("鍒犻櫎鎴愬姛锛�");
 		}else{
 			result.setCode(ResultCode.FAIL);
 			result.setData(itemcat);
-			result.setMessage("删除成功！");
+			result.setMessage("鍒犻櫎鎴愬姛锛�");
 		}
 		return result;
 	}
@@ -82,11 +82,11 @@ public class ItemcatServiceImpl implements ItemcatIU {
 		if(n>0){
 			result.setCode(ResultCode.SUCCESS);
 			result.setData(itemcat);
-			result.setMessage("添加成功！");
+			result.setMessage("娣诲姞鎴愬姛锛�");
 		}else{
 			result.setCode(ResultCode.FAIL);
 			result.setData(itemcat);
-			result.setMessage("添加成功！");
+			result.setMessage("娣诲姞鎴愬姛锛�");
 		}
 		return result;
 	}

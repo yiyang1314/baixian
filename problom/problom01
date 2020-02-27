@@ -1,0 +1,19 @@
+1.服务器正常运行，却无法访问系统，出现404
+解决办法：删除服务器部署的项目，双击服务器，修改serverpath location中的deploy path 路劲
+，再选择第二个单选按钮，use tomcat installing....
+
+2.服务器正常运行，可以看到映射路径
+[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] - Mapped "{[/itemcat/update]}" onto public com.baixian.common.respose.Result com.baixian.user.controller.ItemController.update(com.baixian.vo.BxItemcat)
+[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] - Mapped "{[/itemcat/save]}" onto public com.baixian.common.respose.Result com.baixian.user.controller.ItemController.save(com.baixian.vo.BxItemcat)
+[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] - Mapped "{[/itemcat/list]}" onto public java.util.List<com.baixian.vo.BxItemcat> com.baixian.user.controller.ItemController.findPage(java.util.Map)
+[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] - Mapped "{[/itemcat/findOne]}" onto public com.baixian.vo.BxItemcat com.baixian.user.controller.ItemController.findOne(java.util.Map)
+[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] - Mapped "{[/itemcat/updateInfo]}" onto public com.baixian.vo.BxItemcat com.baixian.user.controller.ItemController.updateInfo(java.lang.Integer)
+[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] - Mapped "{[/itemcat/del]}" onto public com.baixian.common.respose.Result com.baixian.user.controller.ItemController.del(com.baixian.vo.BxItemcat)
+[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] - Mapped "{[/itemcat/findById]}" onto public com.baixian.vo.BxItemcat com.baixian.user.controller.ItemController.findById(java.lang.Integer)
+[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Thu Feb 27 09:43:30 CST 2020]; parent: Root WebApplicationContext
+[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Thu Feb 27 09:43:30 CST 2020]; parent: Root WebApplicationContext
+[org.springframework.web.servlet.DispatcherServlet] - FrameworkServlet 'SpringMVC': initialization completed in 279 ms
+
+可以访问jsp或者今天页面，却无法访问上图的路径http://localhost:8088/baixian//itemcat/list.do，出现404；
+解决办法:修改spring.xml文中的<context:component-scan base-package="com.baixian.user.controller" />
+能够精确到你所需要扫描的包或出现扫描包重复

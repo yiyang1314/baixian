@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.baixian.common.respose.Result;
-import com.baixian.user.service.ItemcatIU;
+import com.baixian.user.service.IItemcatService;
+
 import com.baixian.vo.BxItemcat;
 @RestController
 @RequestMapping("/itemcat")
 public class ItemController {
 	@Autowired
-	private ItemcatIU itemcatService;
+	private IItemcatService itemcatService;
 	
 	
 	@RequestMapping("/findOne")

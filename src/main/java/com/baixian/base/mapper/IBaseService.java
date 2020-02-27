@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Condition;
 import com.baixian.common.respose.Result;
 import com.baixian.vo.BxItemcat;
 
-public interface BaesIU<T> {
+public interface IBaseService<T> {
 
 	public BxItemcat findOne(Map map);
 	
