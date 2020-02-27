@@ -183,4 +183,16 @@ public class BxProduct  implements Serializable{
     public void setBandId(Integer bandId) {
         this.bandId = bandId;
     }
+
+	@Override
+	public String toString() {
+		return "BxProduct [id=" + id + ", productName=" + productName + ", productAttr=" + productAttr
+				+ ", productSpecical=" + productSpecical + ", grade=" + grade + ", area=" + area + ", num=" + num
+				+ ", sendCity=" + sendCity + ", price=" + price + ", commId=" + commId + ", auditStatus=" + auditStatus
+				+ ", existsGoods=" + existsGoods + ", repositoryNead=" + repositoryNead + ", itemcatId=" + itemcatId
+				+ ", createTime=" + createTime + ", auditTime=" + auditTime + ", imageList=" + imageList + ", bandId="
+				+ bandId + "]";
+	}
+    
+    
 }

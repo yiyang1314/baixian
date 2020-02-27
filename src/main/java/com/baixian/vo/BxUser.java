@@ -3,6 +3,8 @@ package com.baixian.vo;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class BxUser  implements Serializable{
     private Integer id;
 
@@ -27,11 +29,12 @@ public class BxUser  implements Serializable{
     private Integer authenId;
 
     private Integer productId;
-
+    @DateTimeFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private Date createTime;
-
+    @DateTimeFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private Date updateTime;
-
+    @DateTimeFormat(pattern="yyyy-MM-dd hh:mm:ss")
+    //@JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private Date lastloginTime;
 
     private Integer useStatus;
@@ -193,4 +196,17 @@ public class BxUser  implements Serializable{
     public void setMoney(Double money) {
         this.money = money;
     }
+
+	@Override
+	public String toString() {
+		return "BxUser [id=" + id + ", username=" + username + ", password=" + password + ", nickname=" + nickname
+				+ ", picPath=" + picPath + ", phone=" + phone + ", emaill=" + emaill + ", area=" + area + ", addressId="
+				+ addressId + ", accountId=" + accountId + ", authenId=" + authenId + ", productId=" + productId
+				+ ", createTime=" + createTime + ", updateTime=" + updateTime + ", lastloginTime=" + lastloginTime
+				+ ", useStatus=" + useStatus + ", viptypeId=" + viptypeId + ", score=" + score + ", money=" + money
+				+ "]";
+	}
+    
+    
+    
 }

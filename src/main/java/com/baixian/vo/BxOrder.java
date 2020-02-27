@@ -103,4 +103,14 @@ public class BxOrder  implements Serializable{
     public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
+
+	@Override
+	public String toString() {
+		return "BxOrder [id=" + id + ", commId=" + commId + ", productId=" + productId + ", num=" + num + ", total="
+				+ total + ", payStatus=" + payStatus + ", createTime=" + createTime + ", receiveAddress="
+				+ receiveAddress + ", phone=" + phone + ", orderId=" + orderId + "]";
+	}
+    
+    
+    
 }

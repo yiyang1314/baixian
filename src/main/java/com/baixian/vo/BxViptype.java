@@ -43,4 +43,13 @@ public class BxViptype  implements Serializable{
     public void setDescrition(String descrition) {
         this.descrition = descrition == null ? null : descrition.trim();
     }
+
+	@Override
+	public String toString() {
+		return "BxViptype [id=" + id + ", authenticName=" + authenticName + ", createTime=" + createTime
+				+ ", descrition=" + descrition + "]";
+	}
+    
+    
+    
 }

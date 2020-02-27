@@ -105,6 +105,14 @@
     from bx_user
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+<!--   <select id="login" resultMap="BaseResultMap" parameterType="java.util.map" >
+    select 
+    <include refid="Base_Column_List" />
+    from bx_user
+    where username = #{username,jdbcType=VARCHAR} and password= #{password,jdbcType=VARCHAR}
+  </select> -->
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from bx_user
     where id = #{id,jdbcType=INTEGER}

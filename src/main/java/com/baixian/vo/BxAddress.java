@@ -62,4 +62,12 @@ public class BxAddress  implements Serializable{
     public void setDefaultStatus(Integer defaultStatus) {
         this.defaultStatus = defaultStatus;
     }
+
+	@Override
+	public String toString() {
+		return "BxAddress [id=" + id + ", province=" + province + ", city=" + city + ", are=" + are + ", address="
+				+ address + ", defaultStatus=" + defaultStatus + "]";
+	}
+    
+    
 }

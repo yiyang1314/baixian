@@ -22,4 +22,11 @@ public class BxBand  implements Serializable{
     public void setText(String text) {
         this.text = text == null ? null : text.trim();
     }
+
+	@Override
+	public String toString() {
+		return "BxBand [id=" + id + ", text=" + text + "]";
+	}
+    
+    
 }

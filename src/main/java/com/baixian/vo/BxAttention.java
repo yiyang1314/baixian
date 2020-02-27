@@ -63,4 +63,13 @@ public class BxAttention  implements Serializable{
     public void setOrderStatus(Integer orderStatus) {
         this.orderStatus = orderStatus;
     }
+
+	@Override
+	public String toString() {
+		return "BxAttention [id=" + id + ", commId=" + commId + ", downloadNum=" + downloadNum + ", descrition="
+				+ descrition + ", createTime=" + createTime + ", orderStatus=" + orderStatus + "]";
+	}
+    
+    
+    
 }

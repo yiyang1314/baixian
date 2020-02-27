@@ -73,4 +73,12 @@ public class BxNotify  implements Serializable{
     public void setType(Integer type) {
         this.type = type;
     }
+
+	@Override
+	public String toString() {
+		return "BxNotify [id=" + id + ", theme=" + theme + ", checkTime=" + checkTime + ", status=" + status
+				+ ", content=" + content + ", userid=" + userid + ", type=" + type + "]";
+	}
+    
+    
 }

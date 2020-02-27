@@ -32,4 +32,11 @@ public class BxItemcat  implements Serializable{
     public void setParentid(Integer parentid) {
         this.parentid = parentid;
     }
+
+	@Override
+	public String toString() {
+		return "BxItemcat [id=" + id + ", itemname=" + itemname + ", parentid=" + parentid + "]";
+	}
+    
+    
 }

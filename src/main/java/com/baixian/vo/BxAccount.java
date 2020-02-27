@@ -73,4 +73,12 @@ public class BxAccount  implements Serializable{
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+	@Override
+	public String toString() {
+		return "BxAccount [id=" + id + ", userid=" + userid + ", lockStatus=" + lockStatus + ", cardId=" + cardId
+				+ ", cartName=" + cartName + ", openbank=" + openbank + ", createTime=" + createTime + "]";
+	}
+    
+    
 }

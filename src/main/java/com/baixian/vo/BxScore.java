@@ -53,4 +53,12 @@ public class BxScore  implements Serializable{
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+	@Override
+	public String toString() {
+		return "BxScore [id=" + id + ", orderId=" + orderId + ", productId=" + productId + ", score=" + score
+				+ ", createTime=" + createTime + "]";
+	}
+    
+    
 }

@@ -52,4 +52,12 @@ public class BxHead  implements Serializable{
     public void setTypeStatus(Integer typeStatus) {
         this.typeStatus = typeStatus;
     }
+
+	@Override
+	public String toString() {
+		return "BxHead [id=" + id + ", type=" + type + ", headId=" + headId + ", content=" + content + ", typeStatus="
+				+ typeStatus + "]";
+	}
+    
+    
 }

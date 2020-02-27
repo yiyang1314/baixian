@@ -92,4 +92,13 @@ public class BxPerson  implements Serializable{
     public void setAuditStatus(Integer auditStatus) {
         this.auditStatus = auditStatus;
     }
+
+	@Override
+	public String toString() {
+		return "BxPerson [id=" + id + ", realname=" + realname + ", authenId=" + authenId + ", authenPic=" + authenPic
+				+ ", contactAddress=" + contactAddress + ", phone=" + phone + ", email=" + email + ", telphone="
+				+ telphone + ", auditStatus=" + auditStatus + "]";
+	}
+    
+    
 }

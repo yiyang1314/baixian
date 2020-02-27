@@ -11,11 +11,11 @@ import com.baixian.vo.BxItemcat;
 
 public interface IBaseService<T> {
 
-	public BxItemcat findOne(Map map);
+	public T findOne(Map map);
 	
-	public List<BxItemcat> findPage(Map map);
+	public List<T> findPage(Map map);
 	
-	public BxItemcat findById(Integer id);
+	public T findById(Integer id);
 	
 	
 	public Result update(T record);

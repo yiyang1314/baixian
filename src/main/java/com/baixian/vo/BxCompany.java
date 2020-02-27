@@ -102,4 +102,14 @@ public class BxCompany  implements Serializable{
     public void setAddressId(Integer addressId) {
         this.addressId = addressId;
     }
+
+	@Override
+	public String toString() {
+		return "BxCompany [id=" + id + ", companyName=" + companyName + ", imageList=" + imageList + ", otherList="
+				+ otherList + ", corporate=" + corporate + ", operator=" + operator + ", operateService="
+				+ operateService + ", contact=" + contact + ", authenticStatus=" + authenticStatus + ", addressId="
+				+ addressId + "]";
+	}
+    
+    
 }

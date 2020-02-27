@@ -43,4 +43,12 @@ public class BxAdmin  implements Serializable{
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
     }
+
+	@Override
+	public String toString() {
+		return "BxAdmin [id=" + id + ", adminName=" + adminName + ", loginTime=" + loginTime + ", password=" + password
+				+ "]";
+	}
+    
+    
 }
